@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "47290857141",
+    "firebase_url": "https://wantfood-a27c8.firebaseio.com",
+    "project_id": "wantfood-a27c8",
+    "storage_bucket": "wantfood-a27c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47290857141:android:7c0d525c211e36b0",
+        "android_client_info": {
+          "package_name": "com.example.usuario.wantfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47290857141-o28h1eulej3n2m26f7n3cqsgmm9fk2n6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1Qe4LYPQRF5MqZFUz_ZWZz5fNXnmaovI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
