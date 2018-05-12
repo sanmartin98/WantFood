@@ -1,8 +1,11 @@
 package com.example.usuario.wantfood.Activitys;
 
+import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,11 +15,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 
+import com.example.usuario.wantfood.Fragments.OrderFragment;
+import com.example.usuario.wantfood.Fragments.ProfileFragment;
+import com.example.usuario.wantfood.ManejoUser;
 import com.example.usuario.wantfood.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Activity_Principal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private ManejoUser mn = new ManejoUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +50,11 @@ public class Activity_Principal extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mn.inicializatedFireBase();
+
+        ProfileFragment fragment = new ProfileFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, fragment).commit();
     }
 
     @Override
@@ -70,17 +92,34 @@ public class Activity_Principal extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        manager.popBackStack();
+        getFragmentManager().popBackStack();
+        android.support.v4.app.Fragment fragment = null;
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
-            // Handle the camera action
+            fragment = new ProfileFragment();
         } else if (id == R.id.nav_orden) {
+            fragment = new OrderFragment();
+        } else if (id == R.id.nav_close){
+            mn.firebaseAuth.signOut();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        }
 
+        if(fragment != null){
+            transaction.replace(R.id.contenedor, fragment);
+            transaction.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

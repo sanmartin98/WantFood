@@ -12,6 +12,10 @@
             android:id="@+id/nav_orden"
             android:icon="@drawable/ic_orden"
             android:title="Ordenes" />
+        <item
+            android:id="@+id/nav_close"
+            android:icon="@drawable/ic_close"
+            android:title="Cerrar sesion" />
     </group>
 
 </menu>

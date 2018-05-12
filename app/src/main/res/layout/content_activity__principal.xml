@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contenedor"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,59 +11,6 @@
     tools:context="com.example.usuario.wantfood.Activitys.Activity_Principal"
     tools:showIn="@layout/app_bar_activity__principal">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:text="Ingresa"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        android:id="@+id/tvIngresa"
-        android:gravity="center_horizontal|center_vertical"
-        android:textColor="#000"
-        />
 
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="15"
-        android:background="@drawable/edittext_style"
-        android:drawableLeft="@drawable/ic_user"
-        android:drawablePadding="10dp"
-        android:drawableStart="@drawable/ic_user"
-        android:hint="E-mail"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="5dp"
-        android:textColor="@color/colorPrimary"
-        android:textColorHint="@color/colorPrimary" />
-
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_margin="10dp"
-        android:paddingLeft="5dp"
-        android:layout_weight="15"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:textColorHint="@color/colorPrimary"
-        android:textColor="@color/colorPrimary"
-        android:drawablePadding="10dp"
-        android:background="@drawable/edittext_style"
-        android:drawableStart="@drawable/ic_password"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        android:drawableLeft="@drawable/ic_password" />
-
-    <Button
-        android:id="@+id/btnIngresar"
-        android:textSize="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_weight="15"
-        android:background="@color/colorPrimary"
-        android:text="Ingresa" />
 
 </LinearLayout>
