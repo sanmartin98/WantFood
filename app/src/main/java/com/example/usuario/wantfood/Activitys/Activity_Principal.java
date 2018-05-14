@@ -20,6 +20,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.usuario.wantfood.Fragments.FragmentOrdenes;
 import com.example.usuario.wantfood.Fragments.OrderFragment;
 import com.example.usuario.wantfood.Fragments.ProfileFragment;
 import com.example.usuario.wantfood.ManejoUser;
@@ -34,6 +35,7 @@ public class Activity_Principal extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private ManejoUser mn = new ManejoUser();
+    public static final String TYPE_ORDER = "TORDER";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,8 +107,16 @@ public class Activity_Principal extends AppCompatActivity
         if (id == R.id.nav_profile) {
             fragment = new ProfileFragment();
         } else if (id == R.id.nav_orden) {
-            fragment = new OrderFragment();
-        } else if (id == R.id.nav_close){
+            Bundle bundle = new Bundle();
+            bundle.putInt(TYPE_ORDER, 0);
+            fragment = new FragmentOrdenes();
+            fragment.setArguments(bundle);
+        } else if (id == R.id.nav_historial){
+            Bundle bundle = new Bundle();
+            bundle.putInt(TYPE_ORDER, 1);
+            fragment = new FragmentOrdenes();
+            fragment.setArguments(bundle);
+        }else if (id == R.id.nav_close){
             mn.firebaseAuth.signOut();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
         }
