@@ -21,6 +21,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.example.usuario.wantfood.Fragments.FragmentOrdenes;
+import com.example.usuario.wantfood.Fragments.ChatClienteFragment;
 import com.example.usuario.wantfood.Fragments.OrderFragment;
 import com.example.usuario.wantfood.Fragments.ProfileFragment;
 import com.example.usuario.wantfood.ManejoUser;
@@ -57,6 +58,7 @@ public class Activity_Principal extends AppCompatActivity
 
         ProfileFragment fragment = new ProfileFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, fragment).commit();
+
     }
 
     @Override

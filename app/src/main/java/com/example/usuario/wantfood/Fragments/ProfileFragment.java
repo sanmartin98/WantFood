@@ -21,6 +21,7 @@ public class ProfileFragment extends Fragment {
     private TextView tvName, tvEmail, tvCedula, tvPlaca;
     private ManejoUser mn = new ManejoUser();
     private View view;
+    public static String m1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,6 +40,7 @@ public class ProfileFragment extends Fragment {
                 for (DataSnapshot mensajeros : dataSnapshot.getChildren()){
                     Mensajero mensajero = mensajeros.getValue(Mensajero.class);
                     if(mn.firebaseUser.getEmail().equals(mensajero.getEmail())){
+                        m1 = mensajero.getNombre();
                         tvName.setText(mensajero.getNombre());
                         tvEmail.setText(mensajero.getEmail());
                         tvCedula.setText(mensajero.getCedula());
