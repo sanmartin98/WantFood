@@ -72,7 +72,7 @@ public class ChatDespachadorFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                databaseReference.child("Pedidos").child(idPedido).child("ChatDespachador").push().setValue(new MensajeEnviar(txtMensaje.getText().toString(),tvUserName.getText().toString()));
+                databaseReference.child("Pedidos").child(idPedido).child("ChatDespachador").push().setValue(new MensajeEnviar(txtMensaje.getText().toString(),ProfileFragment.m1));
 
                 txtMensaje.setText("");
             }
