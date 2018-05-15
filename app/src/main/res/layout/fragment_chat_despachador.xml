@@ -6,7 +6,7 @@
     tools:context=".Fragments.ChatDespachadorFragment"
     android:orientation="vertical"
     android:padding="10sp"
-    android:background="@color/fondoChat">
+    android:background="@color/fondoChatD">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.LinearLayoutCompat
