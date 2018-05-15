@@ -50,11 +50,11 @@ public class FragmentOrdenes extends Fragment {
         lstPedidos = new ArrayList<>();
         recyclerPedidos = view.findViewById(R.id.rvOrdenes);
         recyclerPedidos.setLayoutManager(new LinearLayoutManager(getContext()));
-        selectData();
+        cargarOrdenes();
 
     }
 
-    private ArrayList<Pedido> selectData(){
+    private ArrayList<Pedido> cargarOrdenes(){
         lstPedidos.clear();
         mn.databaseReference.child("Pedidos").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

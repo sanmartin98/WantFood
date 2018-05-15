@@ -41,36 +41,12 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
         }
 
         init();
-        selectData();
-
-        btnChatCliente.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ChatClienteFragment chatClienteFragment;
-                chatClienteFragment = new ChatClienteFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString("id",idPedido);
-                chatClienteFragment.setArguments(bundle);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,chatClienteFragment).commit();
-            }
-        });
-
-        btnChatDespachador.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ChatDespachadorFragment chatDespachadorFragment;
-                chatDespachadorFragment = new ChatDespachadorFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString("id",idPedido);
-                chatDespachadorFragment.setArguments(bundle);
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,chatDespachadorFragment).commit();
-            }
-        });
+        cargarOrden();
 
         return view;
     }
 
-    private void selectData() {
+    private void cargarOrden() {
         mn.databaseReference.child("Pedidos").child(idPedido).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -101,6 +77,8 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
         btnChatCliente = (Button) view.findViewById(R.id.btnChatCliente);
         btnChatDespachador = (Button) view.findViewById(R.id.btnChatDespachador);
         btnEstado.setOnClickListener(this);
+        btnChatCliente.setOnClickListener(this);
+        btnChatDespachador.setOnClickListener(this);
     }
 
     private void changeText(){
@@ -122,12 +100,44 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnCambiarEstado:
-                pedido.setEstado("entregado");
-                mn.databaseReference.child("Pedidos").child(pedido.getId()).setValue(pedido);
-                Toast.makeText(getContext(), "Se ha movido la orden al historial", Toast.LENGTH_SHORT).show();
-                Fragment fragment = new ProfileFragment();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, fragment).commit();
+                cambiarEstadoPedido();
+                break;
+
+            case R.id.btnChatCliente:
+                chatCliente();
+                break;
+
+            case R.id.btnChatDespachador:
+                chatDespachador();
                 break;
         }
     }
+
+    private void chatDespachador() {
+        ChatDespachadorFragment chatDespachadorFragment;
+        chatDespachadorFragment = new ChatDespachadorFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("id",idPedido);
+        chatDespachadorFragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,chatDespachadorFragment).commit();
+    }
+
+    private void chatCliente() {
+        ChatClienteFragment chatClienteFragment;
+        chatClienteFragment = new ChatClienteFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("id",idPedido);
+        chatClienteFragment.setArguments(bundle);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,chatClienteFragment).commit();
+    }
+
+    private void cambiarEstadoPedido(){
+        pedido.setEstado("entregado");
+        mn.databaseReference.child("Pedidos").child(pedido.getId()).setValue(pedido);
+        Toast.makeText(getContext(), "Se ha movido la orden al historial", Toast.LENGTH_SHORT).show();
+        Fragment fragment = new ProfileFragment();
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, fragment).commit();
+    }
+
+
 }
