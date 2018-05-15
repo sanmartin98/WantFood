@@ -18,6 +18,7 @@ public class AdaptadorOrdenes extends RecyclerView.Adapter<AdaptadorOrdenes.Orde
 
     ArrayList<Pedido> lstPedidos;
     private View.OnClickListener listener;
+    public static String c1;
 
     public AdaptadorOrdenes(ArrayList<Pedido> lstPedidos) {
         this.lstPedidos = lstPedidos;
@@ -32,6 +33,7 @@ public class AdaptadorOrdenes extends RecyclerView.Adapter<AdaptadorOrdenes.Orde
 
     @Override
     public void onBindViewHolder(OrdenesViewHolder holder, int position) {
+        c1 = lstPedidos.get(position).getCliente().toString();
         holder.tvOrden.setText(lstPedidos.get(position).getProducto());
         holder.tvCliente.setText(lstPedidos.get(position).getCliente());
         holder.tvDir.setText(lstPedidos.get(position).getDireccion());

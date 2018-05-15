@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.usuario.wantfood.AdaptadorOrdenes;
 import com.example.usuario.wantfood.AdapterMensajes;
 import com.example.usuario.wantfood.Clases.Mensajero;
 import com.example.usuario.wantfood.ManejoUser;
@@ -63,7 +64,7 @@ public class ChatClienteFragment extends Fragment {
             idPedido = getArguments().getString("id");
         }
         iniciar();
-        tvUserName.setText(ProfileFragment.m1);
+        tvUserName.setText(AdaptadorOrdenes.c1);
 
         adapterMensajes = new AdapterMensajes(getActivity());
         LinearLayoutManager l = new LinearLayoutManager(getContext());

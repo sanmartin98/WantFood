@@ -60,7 +60,7 @@ public class ChatDespachadorFragment extends Fragment {
             idPedido = getArguments().getString("id");
         }
         iniciar();
-        tvUserName.setText(ProfileFragment.m1);
+        tvUserName.setText("Despachador");
 
         adapterMensajes = new AdapterMensajes(getActivity());
         LinearLayoutManager l = new LinearLayoutManager(getContext());
