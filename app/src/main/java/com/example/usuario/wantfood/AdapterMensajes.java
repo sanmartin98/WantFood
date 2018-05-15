@@ -38,10 +38,10 @@ public class AdapterMensajes extends RecyclerView.Adapter<HolderMensaje> {
         holder.getTvNameUser().setText(mensajeList.get(position).getUserName());
         holder.getTvMensaje().setText(mensajeList.get(position).getMensaje());
 
-        Long codigoHora = mensajeList.get(position).getHora();
+        /*Long codigoHora = mensajeList.get(position).getHora();
         Date d = new Date(codigoHora);
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a");
-        holder.getTvHoraM().setText(sdf.format(d));
+        holder.getTvHoraM().setText(sdf.format(d));*/
 
     }
 

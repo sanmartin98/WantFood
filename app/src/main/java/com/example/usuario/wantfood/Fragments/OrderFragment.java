@@ -1,11 +1,13 @@
 package com.example.usuario.wantfood.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +42,30 @@ public class OrderFragment extends Fragment {
 
         init();
         selectData();
+
+        btnChatCliente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChatClienteFragment chatClienteFragment;
+                chatClienteFragment = new ChatClienteFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("id",idPedido);
+                chatClienteFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,chatClienteFragment).commit();
+            }
+        });
+
+        btnChatDespachador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ChatDespachadorFragment chatDespachadorFragment;
+                chatDespachadorFragment = new ChatDespachadorFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("id",idPedido);
+                chatDespachadorFragment.setArguments(bundle);
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor,chatDespachadorFragment).commit();
+            }
+        });
 
         return view;
     }

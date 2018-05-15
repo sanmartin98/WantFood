@@ -14,17 +14,11 @@ public class MensajeEnviar extends Mensaje {
 
     }
 
-    public MensajeEnviar(String mensaje, String userName, String fotoPerfil, Map hora) {
-        super(mensaje, userName, fotoPerfil);
-        this.hora = hora;
+    public MensajeEnviar(String mensaje, String userName) {
+        super(mensaje, userName);
+
     }
 
-    public Map getHora() {
-        return hora;
-    }
 
-    public void setHora(Map hora) {
-        this.hora = hora;
-    }
 }
 

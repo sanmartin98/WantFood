@@ -20,7 +20,6 @@ public class HolderMensaje extends RecyclerView.ViewHolder {
     public void iniciar(){
         tvNameUser = (TextView) itemView.findViewById(R.id.tvNameUser);
         tvMensaje = (TextView) itemView.findViewById(R.id.tvMensaje);
-        tvHoraM = (TextView) itemView.findViewById(R.id.tvHoraM);
         ciFotoPerfil1 = (CircleImageView) itemView.findViewById(R.id.ciFotoPerfil);
 
 

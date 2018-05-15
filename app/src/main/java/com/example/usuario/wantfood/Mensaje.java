@@ -3,17 +3,17 @@ package com.example.usuario.wantfood;
 public class Mensaje {
     private String mensaje;
     private String userName;
-    private String fotoPerfil;
+
 
     public Mensaje(){
 
     }
 
 
-    public Mensaje(String mensaje, String userName, String fotoPerfil) {
+    public Mensaje(String mensaje, String userName) {
         this.mensaje = mensaje;
         this.userName = userName;
-        this.fotoPerfil = fotoPerfil;
+
     }
 
     public String getMensaje() {
@@ -34,11 +34,5 @@ public class Mensaje {
 
 
 
-    public String getFotoPerfil() {
-        return fotoPerfil;
-    }
 
-    public void setFotoPerfil(String fotoPerfil) {
-        this.fotoPerfil = fotoPerfil;
-    }
 }

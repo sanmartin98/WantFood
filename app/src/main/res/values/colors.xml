@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorSubTextFaded">#80ABAAAA</color>
     <color name="fondoChat">#669999</color>
+    <color name="fondoChatD">#4498BC</color>
 </resources>
