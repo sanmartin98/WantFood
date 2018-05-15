@@ -63,16 +63,24 @@ public class FragmentOrdenes extends Fragment {
                 if (tOrden == 0) {
                     for (DataSnapshot pedidos : dataSnapshot.getChildren()) {
                         Pedido pedido = pedidos.getValue(Pedido.class);
-                        if (pedido.getEstado().toString().equals("activo")) {
-                            lstPedidos.add(pedido);
+                        for (int i = 0; i < ProfileFragment.lstKeyPedidos.size(); i++){
+                            if(ProfileFragment.lstKeyPedidos.get(i).equals(pedido.getId())){
+                                if (pedido.getEstado().toString().equals("activo")) {
+                                    lstPedidos.add(pedido);
+                                }
+                            }
                         }
                     }
                 } else {
                     tvOrdenes.setText("Historial de ordenes");
                     for (DataSnapshot pedidos : dataSnapshot.getChildren()) {
                         Pedido pedido = pedidos.getValue(Pedido.class);
-                        if (pedido.getEstado().toString().equals("entregado")) {
-                            lstPedidos.add(pedido);
+                        for (int i = 0; i < ProfileFragment.lstKeyPedidos.size(); i++){
+                            if(ProfileFragment.lstKeyPedidos.get(i).equals(pedido.getId())){
+                                if (pedido.getEstado().toString().equals("entregado")) {
+                                    lstPedidos.add(pedido);
+                                }
+                            }
                         }
                     }
                 }

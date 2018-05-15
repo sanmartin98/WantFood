@@ -16,11 +16,14 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class ProfileFragment extends Fragment {
 
     private TextView tvName, tvEmail, tvCedula, tvPlaca;
     private ManejoUser mn = new ManejoUser();
     private View view;
+    public static ArrayList<String> lstKeyPedidos = new ArrayList<>();
     public static String m1;
 
     @Override
@@ -40,6 +43,7 @@ public class ProfileFragment extends Fragment {
                 for (DataSnapshot mensajeros : dataSnapshot.getChildren()){
                     Mensajero mensajero = mensajeros.getValue(Mensajero.class);
                     if(mn.firebaseUser.getEmail().equals(mensajero.getEmail())){
+                        lstKeyPedidos = mensajero.getKeyLstPedidos();
                         m1 = mensajero.getNombre();
                         tvName.setText(mensajero.getNombre());
                         tvEmail.setText(mensajero.getEmail());

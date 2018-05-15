@@ -22,7 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-public class OrderFragment extends Fragment {
+public class OrderFragment extends Fragment implements View.OnClickListener {
 
     private TextView tvPedido, tvPrecio, tvCliente, tvDir, tvFecha, tvEstado;
     private Button btnEstado, btnChatCliente, btnChatDespachador;
@@ -100,10 +100,11 @@ public class OrderFragment extends Fragment {
         btnEstado = (Button) view.findViewById(R.id.btnCambiarEstado);
         btnChatCliente = (Button) view.findViewById(R.id.btnChatCliente);
         btnChatDespachador = (Button) view.findViewById(R.id.btnChatDespachador);
+        btnEstado.setOnClickListener(this);
     }
 
     private void changeText(){
-        tvPedido.setText(pedido.getProducto());
+            tvPedido.setText(pedido.getProducto());
         tvPrecio.setText(pedido.getPrecio() + "");
         tvCliente.setText(pedido.getCliente());
         tvDir.setText(pedido.getDireccion());
@@ -117,4 +118,16 @@ public class OrderFragment extends Fragment {
         btnChatDespachador.setEnabled(false);
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.btnCambiarEstado:
+                pedido.setEstado("entregado");
+                mn.databaseReference.child("Pedidos").child(pedido.getId()).setValue(pedido);
+                Toast.makeText(getContext(), "Se ha movido la orden al historial", Toast.LENGTH_SHORT).show();
+                Fragment fragment = new ProfileFragment();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.contenedor, fragment).commit();
+                break;
+        }
+    }
 }

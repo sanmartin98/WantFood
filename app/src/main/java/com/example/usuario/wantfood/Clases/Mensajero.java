@@ -1,5 +1,7 @@
 package com.example.usuario.wantfood.Clases;
 
+import java.util.ArrayList;
+
 /**
  * Created by Usuario on 11/05/2018.
  */
@@ -14,6 +16,7 @@ public class Mensajero {
     private String cedula;
     private String placa;
     private String email;
+    private ArrayList<String> keyLstPedidos;
 
     /////////////////////////////////////////////////
     //CONSTRUCTORES
@@ -23,11 +26,12 @@ public class Mensajero {
     public Mensajero() {
     }
 
-    public Mensajero(String nombre, String cedula, String placa, String email) {
+    public Mensajero(String nombre, String cedula, String placa, String email, ArrayList<String> keyLstPedidos) {
         this.nombre = nombre;
         this.cedula = cedula;
         this.placa = placa;
         this.email = email;
+        this.keyLstPedidos = keyLstPedidos;
     }
 
     /////////////////////////////////////////////////
@@ -65,5 +69,13 @@ public class Mensajero {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public ArrayList<String> getKeyLstPedidos() {
+        return keyLstPedidos;
+    }
+
+    public void setKeyLstPedidosLstPedidos(ArrayList<String> lstPedidos) {
+        this.keyLstPedidos = lstPedidos;
     }
 }
