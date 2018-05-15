@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragments.ChatClienteFragment"
+    android:padding="10sp"
+    android:background="@color/fondoChat"
+    android:orientation="vertical">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="48sp"
+            android:layout_height="48sp"
+            android:src="@drawable/ic_user"
+            android:id="@+id/ciFotoPerfil"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="nombre de usuario"
+            android:layout_gravity="center"
+            android:textColor="#FFFFFF"
+            android:id="@+id/tvUserName"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/rvMensajes">
+        
+    </android.support.v7.widget.RecyclerView>
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Escriba mensaje"
+            android:layout_weight="1"
+            android:id="@+id/txtMensaje"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_send"
+            android:id="@+id/imgBtnEnviar"/>
+
+    </android.support.v7.widget.LinearLayoutCompat>
+    
+
+
+
+</android.support.v7.widget.LinearLayoutCompat>
